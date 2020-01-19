@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Scraping Node</title>
+</head>
+<body>
+
+  <div class="header">
+    <h1 class="headerTitle">Scraping d'article</h1>
+    <label for="url">URL :</label>
+    <input id="url" name="url" placeholder="URL ARTICLE" type="text"/>
+    <button id="submit">Accéder</button>
+  </div>
+  <div id="container"></div>
+
+  <script>
+document.getElementById("submit").onclick = async () => {
+
+  const url = document.getElementById("url").value;
+  const container = document.getElementById("container");
+
+  const response = await fetch("/test?url="+url);
+  const responseText = await response.text();
+
+  container.innerHTML = responseText;
+  container.style.display = "block";
+}
+  </script>
+
+  <style>
+    body{
+      margin: 0;
+      background-color: #7faefa;
+    }
+
+    .header{
+      display: block;
+      width: 100%;
+      height: 110px;
+      background-color: #0d004d;
+      text-align: center;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    #container{
+      color: #000;
+      display: none;
+      padding: 20px;
+      width: 800px;
+      margin: 0 auto;
+      font-size: 16px;
+      background-color: #fff;
+    }
+
+    .headerTitle{
+      color: #fff;
+      padding-top: 10px;
+      margin: 0 0 20px 0;
+    }
+  </style>
+
+</body>
+</html>
