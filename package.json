@@ -1,6 +1,6 @@
 {
-  "name": "scrap-paris",
-  "version": "1.4",
+  "name": "scrap-articles",
+  "version": "1.4.0",
   "description": "scraping html articles",
   "main": "index.js",
   "scripts": {
